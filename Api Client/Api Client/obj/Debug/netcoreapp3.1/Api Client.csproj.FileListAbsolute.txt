@@ -1,0 +1,41 @@
+D:\Biblioteca\Documentos\Experiments\Api Client\Api Client\bin\Debug\netcoreapp3.1\appsettings.Development.json
+D:\Biblioteca\Documentos\Experiments\Api Client\Api Client\bin\Debug\netcoreapp3.1\appsettings.json
+D:\Biblioteca\Documentos\Experiments\Api Client\Api Client\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+D:\Biblioteca\Documentos\Experiments\Api Client\Api Client\bin\Debug\netcoreapp3.1\Api Client.exe
+D:\Biblioteca\Documentos\Experiments\Api Client\Api Client\bin\Debug\netcoreapp3.1\Api Client.deps.json
+D:\Biblioteca\Documentos\Experiments\Api Client\Api Client\bin\Debug\netcoreapp3.1\Api Client.runtimeconfig.json
+D:\Biblioteca\Documentos\Experiments\Api Client\Api Client\bin\Debug\netcoreapp3.1\Api Client.runtimeconfig.dev.json
+D:\Biblioteca\Documentos\Experiments\Api Client\Api Client\bin\Debug\netcoreapp3.1\Api Client.dll
+D:\Biblioteca\Documentos\Experiments\Api Client\Api Client\bin\Debug\netcoreapp3.1\Api Client.pdb
+D:\Biblioteca\Documentos\Experiments\Api Client\Api Client\bin\Debug\netcoreapp3.1\Api Client.Views.dll
+D:\Biblioteca\Documentos\Experiments\Api Client\Api Client\bin\Debug\netcoreapp3.1\Api Client.Views.pdb
+D:\Biblioteca\Documentos\Experiments\Api Client\Api Client\bin\Debug\netcoreapp3.1\System.Net.Http.Formatting.dll
+D:\Biblioteca\Documentos\Experiments\Api Client\Api Client\bin\Debug\netcoreapp3.1\System.Web.Http.dll
+D:\Biblioteca\Documentos\Experiments\Api Client\Api Client\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+D:\Biblioteca\Documentos\Experiments\Api Client\Api Client\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+D:\Biblioteca\Documentos\Experiments\Api Client\Api Client\obj\Debug\netcoreapp3.1\Api Client.AssemblyInfoInputs.cache
+D:\Biblioteca\Documentos\Experiments\Api Client\Api Client\obj\Debug\netcoreapp3.1\Api Client.AssemblyInfo.cs
+D:\Biblioteca\Documentos\Experiments\Api Client\Api Client\obj\Debug\netcoreapp3.1\Api Client.csproj.CoreCompileInputs.cache
+D:\Biblioteca\Documentos\Experiments\Api Client\Api Client\obj\Debug\netcoreapp3.1\Api Client.MvcApplicationPartsAssemblyInfo.cache
+D:\Biblioteca\Documentos\Experiments\Api Client\Api Client\obj\Debug\netcoreapp3.1\Api Client.RazorAssemblyInfo.cache
+D:\Biblioteca\Documentos\Experiments\Api Client\Api Client\obj\Debug\netcoreapp3.1\Api Client.RazorAssemblyInfo.cs
+D:\Biblioteca\Documentos\Experiments\Api Client\Api Client\obj\Debug\netcoreapp3.1\Api Client.TagHelpers.input.cache
+D:\Biblioteca\Documentos\Experiments\Api Client\Api Client\obj\Debug\netcoreapp3.1\Api Client.TagHelpers.output.cache
+D:\Biblioteca\Documentos\Experiments\Api Client\Api Client\obj\Debug\netcoreapp3.1\Api Client.RazorCoreGenerate.cache
+D:\Biblioteca\Documentos\Experiments\Api Client\Api Client\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
+D:\Biblioteca\Documentos\Experiments\Api Client\Api Client\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
+D:\Biblioteca\Documentos\Experiments\Api Client\Api Client\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
+D:\Biblioteca\Documentos\Experiments\Api Client\Api Client\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
+D:\Biblioteca\Documentos\Experiments\Api Client\Api Client\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+D:\Biblioteca\Documentos\Experiments\Api Client\Api Client\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
+D:\Biblioteca\Documentos\Experiments\Api Client\Api Client\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
+D:\Biblioteca\Documentos\Experiments\Api Client\Api Client\obj\Debug\netcoreapp3.1\Api Client.RazorTargetAssemblyInfo.cache
+D:\Biblioteca\Documentos\Experiments\Api Client\Api Client\obj\Debug\netcoreapp3.1\Api Client.RazorTargetAssemblyInfo.cs
+D:\Biblioteca\Documentos\Experiments\Api Client\Api Client\obj\Debug\netcoreapp3.1\Api Client.Views.pdb
+D:\Biblioteca\Documentos\Experiments\Api Client\Api Client\obj\Debug\netcoreapp3.1\Api Client.csproj.CopyComplete
+D:\Biblioteca\Documentos\Experiments\Api Client\Api Client\obj\Debug\netcoreapp3.1\staticwebassets\Api Client.StaticWebAssets.Manifest.cache
+D:\Biblioteca\Documentos\Experiments\Api Client\Api Client\obj\Debug\netcoreapp3.1\staticwebassets\Api Client.StaticWebAssets.xml
+D:\Biblioteca\Documentos\Experiments\Api Client\Api Client\obj\Debug\netcoreapp3.1\Api Client.dll
+D:\Biblioteca\Documentos\Experiments\Api Client\Api Client\obj\Debug\netcoreapp3.1\Api Client.pdb
+D:\Biblioteca\Documentos\Experiments\Api Client\Api Client\obj\Debug\netcoreapp3.1\Api Client.genruntimeconfig.cache
+D:\Biblioteca\Documentos\Experiments\Api Client\Api Client\obj\Debug\netcoreapp3.1\Api Client.csprojAssemblyReference.cache

@@ -1,0 +1,287 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+    .modal-mask {
+        position: fixed;
+        z-index: 9998;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, .5);
+        display: table;
+        transition: opacity .3s ease;
+    }
+
+    .modal-wrapper {
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+    .modal-container {
+        width: 300px;
+        margin: 0px auto;
+        padding: 20px 30px;
+        background-color: #fff;
+        border-radius: 2px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
+        transition: all .3s ease;
+        font-family: Helvetica, Arial, sans-serif;
+    }
+
+    .modal-header h3 {
+        margin-top: 0;
+        color: #42b983;
+    }
+
+    .modal-body {
+        margin: 20px 0;
+    }
+
+    /*    .modal-default-button {
+        float: right;
+    }*/
+
+    /*
+    * The following styles are auto-applied to elements with
+    * transition="modal" when their visibility is toggled
+    * by Vue.js.
+    *
+    * You can easily play with the modal transition by editing
+    * these styles.
+    */
+
+    .modal-enter {
+        opacity: 0;
+    }
+
+    .modal-leave-active {
+        opacity: 0;
+    }
+
+        .modal-enter .modal-container,
+        .modal-leave-active .modal-container {
+            -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+        }
+</style>
+<div id="app" class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="">Nombre Marca</span>
+        </div>
+        <input class="form-control" type="text" v-model="marca.nombre" v-on:keyup.enter="CreateMarca">
+        <div class="input-group-append">
+            <button class="btn btn-primary" type="button" v-on:click="CreateMarca">Add Marca</button>
+        </div>
+    </div>
+
+    <updatemarcamodal :idmarcam="marca.id" :nombremarcam="marca.nombre" v-on:updatedvalues="SaveUpdateMarca" v-if="showModal" v-on:close="showModal = false"></updatemarcamodal>
+
+    <div class="table-responsive">
+        <table class="table table-striped table-hover" id="tblMarcas">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Marca</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(data, idx) in Marcas">
+                    <td>{{idx + 1}}</td>
+                    <td>
+                        {{data.nombre}}
+                    </td>
+                    <td>
+                        <button class="btn btn-success" v-on:click="UpdateMarca(data)">Edit</button>
+                        <button class="btn btn-danger" v-on:click="DeleteMarca(data.id)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script src="~/Scripts/vue.js"></script>
+<script src="~/Scripts/jquery-3.5.1.min.js"></script>
+
+@*Here we create Component of VUE, it is a modal*@
+<script type="text/x-template" id="modal-template">
+    <transition name="modal">
+        <div class="modal-mask">
+            <div class="modal-wrapper">
+                <div class="modal-container">
+
+                    <div class="modal-header">
+                        <slot name="header">
+                            <h3>Updating Marca</h3>
+                        </slot>
+                    </div>
+
+                    <div class="modal-body">
+                        <slot name="body">
+                            <h5>ID: {{idMarcaModal}}</h5>
+                            <input class="form-control" type="text" v-model="nombreMarcaModal" placeholder="Nombre Marca" v-on:keyup.enter="sendDataMarca">
+                        </slot>
+                    </div>
+
+                    <div class="modal-footer">
+                        <slot name="footer">
+                            <button class="btn btn-secondary" v-on:click="$emit('close')">Cancel Update</button>
+                            <button class="btn btn-primary" v-on:click="sendDataMarca">Save Update</button>
+                        </slot>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </transition>
+</script>
+
+<script>
+    Vue.component('updatemarcamodal', {
+        data() { //Variables of the component
+            return {
+                nombreMarcaModal: this.nombremarcam
+                , idMarcaModal: this.idmarcam
+            }
+        },
+        methods: {
+            /**
+             * Send the informacion from the componente (Child) to the Main page (parent)
+             * */
+            sendDataMarca() {
+                var newValues = {
+                    id: this.idMarcaModal
+                    , nombre: this.nombreMarcaModal
+                }
+                //These are the variables will be received by the parent
+                this.$emit("updatedvalues", newValues); 
+                this.$emit('close');
+            }
+        },
+        props: ["idmarcam", "nombremarcam"], //Receives the values from the parent
+        template: '#modal-template', //Calls the script where is the HTML, here you can type in HTML if you desire, but it should be inside a DIV tag
+    })
+
+    const appVue = new Vue({
+        el: '#app',
+        data: {
+            Marcas: [],
+            nombreMarca: "",
+            switchButtons: true,
+            showModal: false,
+            marca: {
+                id: 0,
+                nombre: ""
+            },
+            idHijo: 0,
+            marcaHijo: ""
+        },
+        /**
+         * This is a method that belongs to VUE, it will be executed after the DOM is created
+         * */
+        mounted() {
+            this.GetMarcas("");
+        },
+        methods: {
+            /**
+             * Return all the Marcas or just the given Marca, using GET
+             * param idMarca ID de la marca
+             */
+            GetMarcas(idMarca) {
+                let self = this;
+                $.ajax({
+                    type: "POST",
+                    url: "/Home/GetMarca", // the URL of the controller
+                    data: { id: idMarca }, // optional data
+                    success: function (result) {
+                        self.Marcas = result
+                    },
+                    error: function (req, status, error) {
+                        console.log("GetMarcas-error");
+                        console.log(req);
+                        console.log(status);
+                        console.log(error);
+                    }
+                });
+            },
+            /**
+             * Creates a new Marca, using POST
+             * */
+            CreateMarca() {
+                let self = this;
+                $.ajax({
+                    type: "POST",
+                    url: "/Home/CreateMarca", // the URL of the controller
+                    data: { nombre: self.marca.nombre }, // optional data
+                    success: function (result) {
+                        self.marca.nombre = "";
+                        self.GetMarcas("");
+                    },
+                    error: function (req, status, error) {
+                        console.log("CreateMarca-error");
+                        console.log(req);
+                        console.log(status);
+                        console.log(error);
+                    }
+                });
+            },
+            /**
+             * Shows the modal with the values of that Marca
+             * param marca Catchs the values of the Marca
+             */
+            UpdateMarca(marca) {
+                this.showModal = true;
+                this.marca.id = marca.id;
+                this.marca.nombre = marca.nombre;
+                this.switchButtons = !this.switchButtons;
+            },
+            /**
+             * Saves the values of the Marca updated
+             * param updatedValues Values updated
+             */
+            SaveUpdateMarca(updatedValues) {
+                let self = this;
+                $.ajax({
+                    type: "POST",
+                    url: "/Home/EditMarca", // the URL of the controller
+                    data: { marca: updatedValues }, // optional data
+                    success: function (result) {
+                        self.marca.nombre = "";
+                        self.GetMarcas("");
+                    },
+                    error: function (req, status, error) {
+                        console.log("SaveUpdateMarca-error");
+                        console.log(req);
+                        console.log(status);
+                        console.log(error);
+                    }
+                });
+            },
+            /**
+             * Deletes the Marca chosen
+             * param id The ID of the Marca
+             */
+            DeleteMarca(id) {
+                let self = this;
+                $.ajax({
+                    type: "POST",
+                    url: "/Home/DeleteMarca", // the URL of the controller
+                    data: { id: id }, // optional data
+                    success: function (result) {
+                        self.GetMarcas("");
+                    },
+                    error: function (req, status, error) {
+                        console.log("DeleteMarca-error");
+                        console.log(req);
+                        console.log(status);
+                        console.log(error);
+                    }
+                });
+            },
+        }
+    });
+</script>
